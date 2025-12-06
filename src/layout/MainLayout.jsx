@@ -1,0 +1,20 @@
+import Sidebar from "../components/Sidebar";
+import Header from "../components/Header";
+
+export default function MainLayout({ children }) {
+    return (
+        <div className="flex h-screen bg-gray-100">
+            {/* Sidebar */}
+            <Sidebar />
+
+            {/* Main content */}
+            <div className="flex-1 flex flex-col">
+                <Header />
+
+                <div className="p-6 overflow-auto">
+                    {children}
+                </div>
+            </div>
+        </div>
+    );
+}
