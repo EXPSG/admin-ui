@@ -9,7 +9,7 @@ export function AuthProvider({ children }) {
   const fetchUserDetails = async () => {
     try {
       const res = await fetch(
-        "http://localhost:2223/expsg-admin-dashboard/api/clients/v1/detail",
+        "http://localhost:2223/expsg-admin-dashboard/api/clients",
         {
           method: "GET",
           credentials: "include",

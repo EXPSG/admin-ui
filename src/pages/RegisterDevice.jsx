@@ -31,6 +31,7 @@ export default function RegisterDevice() {
 
       const data = await res.json();
       setResult(data);
+      setDeviceId("")
     } catch (err) {
       setError("Network error");
     }

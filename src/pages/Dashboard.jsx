@@ -13,7 +13,7 @@ export default function Dashboard() {
           Welcome, {user.username}
         </h2>
         <p className="text-sm text-gray-500">
-          Overview of your admin account
+          Overview of your client account
         </p>
       </div>
 
@@ -22,6 +22,14 @@ export default function Dashboard() {
           Account details
         </h3>
         <dl className="space-y-2 text-sm">
+          <div className="flex justify-between">
+            <dt className="text-gray-500">Username</dt>
+            <dd className="font-medium text-gray-900">{user.username}</dd>
+          </div>
+          <div className="flex justify-between">
+            <dt className="text-gray-500">Client ID</dt>
+            <dd className="font-medium text-gray-900">{user.client_id}</dd>
+          </div>
           <div className="flex justify-between">
             <dt className="text-gray-500">User ID</dt>
             <dd className="font-medium text-gray-900">{user.user_id}</dd>

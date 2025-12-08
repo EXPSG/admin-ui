@@ -3,8 +3,8 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const [usernameOrEmail, setUsernameOrEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [usernameOrEmailOrClientId, setUsernameOrEmailOrClientId] = useState("021dd629-26d2-42f6-aa7e-b520299fb210");
+    const [password, setPassword] = useState("Client123@");
     const [error, setError] = useState("");
 
     const navigate = useNavigate();
@@ -14,13 +14,13 @@ export default function Login() {
         e.preventDefault();
         setError("");
 
-        const loginUrl = "http://localhost:2223/expsg-admin-dashboard/api/unauth/v1/login";
+        const loginUrl = "http://localhost:2223/expsg-admin-dashboard/api/unauth/client/login";
 
         const res = await fetch(loginUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: "include", // VERY IMPORTANT
-            body: JSON.stringify({ usernameOrEmail, password }),
+            body: JSON.stringify({ usernameOrEmailOrClientId, password }),
         });
 
         if (res.ok) {
@@ -37,7 +37,7 @@ export default function Login() {
                 onSubmit={login}
                 className="bg-white p-8 rounded-lg shadow-lg w-96 border"
             >
-                <h2 className="text-2xl mb-4 font-bold text-center">Admin Login</h2>
+                <h2 className="text-2xl mb-4 font-bold text-center">Client Login</h2>
 
                 {error && (
                     <div className="mb-3 text-red-600 text-center">{error}</div>
@@ -45,9 +45,9 @@ export default function Login() {
 
                 <input
                     className="w-full p-2 border rounded mb-3"
-                    placeholder="Username or Email"
-                    value={usernameOrEmail}
-                    onChange={(e) => setUsernameOrEmail(e.target.value)}
+                    placeholder="Username or Email or Client Id"
+                    value={usernameOrEmailOrClientId}
+                    onChange={(e) => setUsernameOrEmailOrClientId(e.target.value)}
                 />
 
                 <input

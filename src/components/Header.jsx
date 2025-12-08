@@ -11,16 +11,14 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-6 rounded-full bg-blue-600" />
           <div className="font-semibold text-lg text-gray-800">
-            Admin Dashboard
+            Client Dashboard
           </div>
         </div>
 
-        <div className="text-sm text-gray-600">
-          Logged in as 
-           <span className="font-semibold">
-            {user?.username ?? "Unknown..."}
-          </span>
+        <div className="font-semibold text-lg text-gray-800">
+           {user?.client_id ?? "Unknown..."}
         </div>
+        
       </div>
     </div>
   );
